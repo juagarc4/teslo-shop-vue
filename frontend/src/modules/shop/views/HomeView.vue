@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+import { tesloApi } from '@/api/tesloApi';
+tesloApi;
+</script>
+
 <template>
   <!-- Title -->
   <div class="pt-32 bg-white">

@@ -1,6 +1,11 @@
-# frontend of teslo-shop made in vue
+# Frontend of teslo-shop made in vue
 
 This is the frontend of the teslo app made in vue. This app was built during the course "Vue.js from 0 to Expert" from Fernando Herrera. Udemy URL: https://www.udemy.com/share/104WrC3@aOX3PBJDIC2poao-ONXdZtvQSjOODuUCPR1znvLxNZ6B8XNf6-JtqEK24O4Vk
+
+## Environment variables
+
+1. Copy the file .env.template and rename it to .env
+2. Adjust environment variables as needed.
 
 ## Recommended IDE Setup
 
