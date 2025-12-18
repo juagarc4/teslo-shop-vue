@@ -21,5 +21,4 @@ export enum Size {
   xl = 'XL',
   xs = 'XS',
   xxl = 'XXL',
-  xxxl = 'XXXL',
 }
