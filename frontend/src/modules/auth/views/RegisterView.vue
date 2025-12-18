@@ -1,33 +1,80 @@
+<script lang="ts" setup>
+import { reactive, ref } from 'vue';
+import { useToast } from 'vue-toastification';
+import { useAuthStore } from '@/modules/auth/stores/auth.store';
+
+const authStore = useAuthStore();
+const fullNameInputRef = ref<HTMLInputElement | null>(null);
+const emaiInputRef = ref<HTMLInputElement | null>(null);
+const passwordInputRef = ref<HTMLInputElement | null>(null);
+const toast = useToast();
+// Reactive can be used to save objects. The use of ref is recommenden unless there is
+// necessary the use of reactive.
+const myForm = reactive({
+  fullName: '',
+  email: '',
+  password: '',
+});
+
+const onRegister = async () => {
+  if (myForm.fullName.length < 2) {
+    return fullNameInputRef.value?.focus();
+  }
+  if (myForm.email === '' || !myForm.email.includes('@')) {
+    return emaiInputRef.value?.focus();
+  }
+  if (myForm.password.length < 6) {
+    return passwordInputRef.value?.focus();
+  }
+
+  const ok = await authStore.register(myForm.fullName, myForm.email, myForm.password);
+  if (ok) {
+    toast.success('User successfully registered. Login now using your new credentials.');
+    myForm.fullName = '';
+    myForm.email = '';
+    myForm.password = '';
+    return;
+  }
+
+  toast.error('User was not registered');
+};
+</script>
 <template>
   <h1 class="text-2xl font-semibold mb-4">Register</h1>
-  <form action="#" method="POST">
+  <form @submit.prevent="onRegister">
     <!-- Username Input -->
     <div class="mb-4">
-      <label for="name" class="block text-gray-600">Name</label>
+      <label for="fullName" class="block text-gray-600">Full Name</label>
       <input
+        ref="fullNameInputRef"
+        v-model="myForm.fullName"
         type="text"
-        id="name"
-        name="name"
+        id="fullName"
+        name="fullName"
         class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
         autocomplete="off"
       />
     </div>
 
-    <!-- Username Input -->
+    <!-- E-Mail Input -->
     <div class="mb-4">
-      <label for="username" class="block text-gray-600">Username</label>
+      <label for="email" class="block text-gray-600">E-Mail</label>
       <input
-        type="text"
-        id="username"
-        name="username"
+        ref="emailInputRef"
+        v-model="myForm.email"
+        type="email"
+        id="email"
+        name="email"
         class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
         autocomplete="off"
       />
     </div>
     <!-- Password Input -->
-    <div class="mb-4">
+    <div class="mb-6">
       <label for="password" class="block text-gray-600">Password</label>
       <input
+        ref="passwordInputRef"
+        v-model="myForm.password"
         type="password"
         id="password"
         name="password"
@@ -35,21 +82,13 @@
         autocomplete="off"
       />
     </div>
-    <!-- Remember Me Checkbox -->
-    <div class="mb-4 flex items-center">
-      <input type="checkbox" id="remember" name="remember" class="text-blue-500" />
-      <label for="remember" class="text-gray-600 ml-2">Remember Me</label>
-    </div>
-    <!-- Forgot Password Link -->
-    <div class="mb-6 text-blue-500">
-      <a href="#" class="hover:underline">Forgot Password?</a>
-    </div>
+
     <!-- Login Button -->
     <button
       type="submit"
       class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full"
     >
-      Login
+      Register
     </button>
   </form>
   <!-- Sign up  Link -->

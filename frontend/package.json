@@ -19,10 +19,12 @@
   "dependencies": {
     "@tanstack/vue-query": "^5.92.1",
     "@tanstack/vue-query-devtools": "^6.1.2",
+    "@vueuse/core": "^14.1.0",
     "axios": "^1.13.2",
     "pinia": "^3.0.4",
     "vue": "^3.5.25",
-    "vue-router": "^4.6.3"
+    "vue-router": "^4.6.3",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.17",

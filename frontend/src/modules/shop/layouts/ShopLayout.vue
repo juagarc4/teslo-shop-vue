@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import TopMenu from '../components/TopMenu.vue';
-import CustomFooter from '../components/CustomFooter.vue';
+import TopMenu from '@/modules/shop/components/TopMenu.vue';
+import CustomFooter from '@/modules/shop/components/CustomFooter.vue';
 import { RouterView } from 'vue-router';
 </script>
 
