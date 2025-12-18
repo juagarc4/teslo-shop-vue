@@ -2,6 +2,7 @@
 import { useRoute, useRouter } from 'vue-router';
 import { AuthStatus } from '@/modules/auth/interfaces';
 import { useAuthStore } from '@/modules/auth/stores/auth.store';
+import FullScreenLoader from '@/modules/common/components/FullScreenLoader.vue';
 
 // Subscrition to the store
 
@@ -26,5 +27,6 @@ authStore.$subscribe(
 );
 </script>
 <template>
-  <RouterView />
+  <FullScreenLoader v-if="authStore.isChecking" />
+  <RouterView v-else />
 </template>
