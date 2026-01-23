@@ -24,8 +24,32 @@ watchEffect(() => {
 <template>
   <!-- component -->
   <div class="bg-white px-5 py-2 rounded">
-    <h1 class="text-3xl">Products</h1>
+    <div class="flex">
+      <h1 class="text-3xl mx-3">Products</h1>
+      <a
+        class="flex items-center shrink-0 h-10 px-3 mt-auto text-sm font-medium bg-gray-200 rounded hover:bg-gray-300"
+        href="#"
+      >
+        <svg
+          class="w-5 h-5"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+        <span class="ml-2 leading-none">Product</span>
+      </a>
+    </div>
+
     <!-- TODO -->
+
     <div class="py-8 w-full">
       <div class="shadow overflow-hidden rounded border-b border-gray-200">
         <table class="min-w-full bg-white">
