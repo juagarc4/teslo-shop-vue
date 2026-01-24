@@ -95,12 +95,22 @@ import CustomTextArea from '@/modules/common/components/CustomTextArea.vue';
         <div v-for="image of images" :key="image.value" class="shrink-0">
           <img :src="image.value" :alt="title" class="w-[250px] h-[250px] rounded" />
         </div>
+        <div v-for="imageFile of imageFiles" :key="imageFile.name" class="shrink-0">
+          <img :src="tmpImageUrl(imageFile)" :alt="title" class="w-[250px] h-[250px] rounded" />
+        </div>
       </div>
       <!-- Upload image -->
       <div class="col-span-2 my-2">
         <label for="image" class="form-label">Upload image</label>
 
-        <input multiple type="file" id="image" class="form-control" />
+        <input
+          multiple
+          type="file"
+          id="image"
+          class="form-control"
+          accept="image/*"
+          @change="onFileChanged"
+        />
       </div>
 
       <div class="mb-4">
@@ -117,14 +127,16 @@ import CustomTextArea from '@/modules/common/components/CustomTextArea.vue';
       <!-- Botón para guardar -->
       <div class="my-4 text-right">
         <button
+          :disabled="isPending"
           type="submit"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          class="disabled:bg-grey-300 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Save
         </button>
       </div>
     </div>
   </form>
+  <!-- DATA VISUALIZER
   <div class="grid grid-cols-2 mt-2">
     <pre class="bg-blue-200 p-2">
       {{ JSON.stringify(values, null, 2) }}
@@ -135,5 +147,5 @@ import CustomTextArea from '@/modules/common/components/CustomTextArea.vue';
     <pre class="bg-green-200 col-span-2">
       {{ JSON.stringify(meta, null, 2) }}
     </pre>
-  </div>
+  </div> -->
 </template>
