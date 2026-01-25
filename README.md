@@ -11,6 +11,10 @@ This vue app uses Pinia - TanStack and reusable components to build an online E-
 
 ### Deployment to the cloud
 
+For practical porpuses, the "frontend" has been build using "npm run build" and the contents of the created "dist" forlder have ben copied into mthe folder public
+of the "backend" folder.
+In a real world I would recommend to deploy frontend and backend sepoaratelly to improve maintainability and scalability.
+
 1. Envs
 
 2. Railway
