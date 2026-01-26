@@ -29,3 +29,6 @@ In a real world I would recommend to deploy frontend and backend sepoaratelly to
 4. Connection strings
 
 5. Configurations
+   Update variable "VITE_TESLO_API_URL" in the file .env from "frontend" folder and rebuild the app.
+   Rebuild the "backend" too.
+   Commit and push the changes
