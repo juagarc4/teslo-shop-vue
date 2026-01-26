@@ -11,15 +11,20 @@ This vue app uses Pinia - TanStack and reusable components to build an online E-
 
 ### Deployment to the cloud
 
-For practical porpuses, the "frontend" has been build using "npm run build" and the contents of the created "dist" forlder have ben copied into mthe folder public
+For simplicity, the "frontend" has been build using "npm run build" and the contents of the created "dist" forlder have ben copied into the folder "public"
 of the "backend" folder.
 In a real world I would recommend to deploy frontend and backend sepoaratelly to improve maintainability and scalability.
 
 1. Envs
+   We add env variables to the Railway environment.
+   Update HOST_API with the new URL yopu created for your deployment.
 
 2. Railway
+   For the backend we use Railway and we connect the free tier with our GitHub repository usiong the main branch and the folder "backend" as root
+   folder for the deployment.
 
 3. NeonTech
+   For the database we use NeonTech because it offers a free tier that is enough for our test application.
 
 4. Connection strings
 
