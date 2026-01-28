@@ -38,3 +38,4 @@ __screenshots__/
 
 # Env
 .env
+.env.test

@@ -4,13 +4,20 @@ yup.setLocale({
   mixed: {
     default: 'No es válido',
     required: 'Este campo es requerido',
-    oneOf: 'Debe seleccionar una opción válida',
-    notOneOf: 'La opción seleccionada no es válida',
+    oneOf: 'Debe ser uno de los siguientes valores: ${values}',
+    notOneOf: 'No debe ser uno de los siguientes valores: ${values}',
     defined: 'Debe estar definido',
     notNull: 'No puede ser nulo',
     notType: 'Debe ser de tipo ${type}',
   },
+  boolean: {
+    isValue: 'Debe ser igual a ${value}',
+  },
   string: {
+    datetime: '${path} debe ser una fecha y hora ISO válida',
+    datetime_offset: '${path} debe ser una fecha y hora ISO válida con la zona horaria UTC "Z"',
+    datetime_precision:
+      '${path} debe ser una fecha y hora ISO válida con una precisión de sub-segundos de exactamente ${precision} dígitos',
     length: 'Debe tener exactamente ${length} caracteres',
     min: 'Debe tener al menos ${min} caracteres',
     max: 'Debe tener como máximo ${max} caracteres',
@@ -20,6 +27,7 @@ yup.setLocale({
     lowercase: 'Debe estar en minúsculas',
     uppercase: 'Debe estar en mayúsculas',
     matches: 'Debe coincidir con el siguiente patrón: "${regex}"',
+    uuid: '${path} debe ser un UUID válido',
   },
   number: {
     min: 'Debe ser mayor o igual a ${min}',
@@ -34,8 +42,16 @@ yup.setLocale({
     min: 'Debe ser posterior a ${min}',
     max: 'Debe ser anterior a ${max}',
   },
+  object: {
+    noUnknown: '${path} campo tiene llaves no especificadas: ${unknown}',
+    exact: 'El objeto ${path} contiene propiedades desconocidas: ${properties}',
+  },
   array: {
+    length: '${path} debe de ser ${length} elementos',
     min: 'Debe tener al menos ${min} elementos',
     max: 'Debe tener como máximo ${max} elementos',
+  },
+  tuple: {
+    notType: 'tupla no puede tener un miembro ${type}, solo ${expected} miembros',
   },
 });

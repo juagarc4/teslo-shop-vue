@@ -3,8 +3,6 @@ import type { Product } from '@/modules/products/interfaces/product.interface';
 import { getProductImageAction } from './get-product-image.action';
 
 export const getProductByIdAction = async (productId: string) => {
-  // TODO: Action to create a new product.
-
   if (productId === 'create') {
     return {
       id: '',
@@ -26,8 +24,9 @@ export const getProductByIdAction = async (productId: string) => {
       ...data,
       images: data.images.map(getProductImageAction),
     };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    console.log(error);
+    // console.log(error); Commentyed to avoid noide in the tests
     throw new Error(`Error getting product by id ${productId}`);
   }
 };
